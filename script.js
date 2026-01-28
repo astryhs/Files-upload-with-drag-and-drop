@@ -33,7 +33,7 @@ let allFiles = [];
 dropFileZone.addEventListener("drop", (e) => {
   e.preventDefault();
   dropFileZone.classList.remove("active");
-  submitButton.style.display = "block";
+  filesSentElement.style.display = "none";
   const files = e.dataTransfer.files;
   if (files.length > 0) {
     addFiles(files);
@@ -53,6 +53,7 @@ function saveFilesToInput() {
 }
 
 uploadInput.addEventListener("change", () => {
+  filesSentElement.style.display = "none";
   const files = uploadInput.files;
   if (files.length > 0) {
     addFiles(files);
